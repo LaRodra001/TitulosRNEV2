@@ -1,36 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@500&display=swap');
 
 :root {
-    --header-width: 100%;
     --header-height: 5rem;
 }
 
-
+/* GENERAL STYLES */
 body {
     font-family: 'Stack Sans Notch', sans-serif;
     margin: 0;
 }
 
+/* HEADER / BANNER AREA */
 .header {
-    width: var(--header-width);
+    width: 100%;
     height: var(--header-height);
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Separate icon and title */
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1020; /* above default content but below modals */
+    z-index: 1020;
     box-sizing: border-box;
     padding: 0 1rem;
 }
 
+/* MENU ICON */
+.header span {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* TITLE + IMAGE GROUP */
+.header .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
 .header h1 {
     margin: 0;
-    /* Responsive font size */
     font-size: clamp(1.25rem, 3.5vw, 2rem);
+    text-align: center;
 }
 
 #header-down-plataform {
@@ -38,16 +49,15 @@ body {
     height: auto;
     display: block;
     animation: moveDown 0.75s ease-out forwards;
-    will-change: transform;
-    /* Ensure image doesn't overlap text */
-    margin-right: 1rem;
+    margin-right: 0.75rem;
 }
 
+/* MAIN CONTAINER / BANNER BACKGROUND */
 .main-container {
     max-width: 1200px;
-    height: 100vh;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2rem 1rem;
     box-sizing: border-box;
     background-image: url('assets/Banner.jpg');
     background-repeat: no-repeat;
@@ -55,40 +65,41 @@ body {
     background-position: center;
 }
 
+/* SIDENAV */
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1021;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1021;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
 }
 
+/* IMAGE ANIMATION */
 @keyframes moveDown {
     0% {
         transform: translate(-100%, -50%);
@@ -104,7 +115,55 @@ body {
     }
 }
 
+/* RESPONSIVE BEHAVIOR */
+
+/* Small devices (phones) */
+@media (max-width: 576px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    .header span {
+        align-self: flex-start;
+        margin-bottom: 0.5rem;
+    }
+
+    .header .container {
+        justify-content: center;
+    }
+
+    #header-down-plataform {
+        max-width: 2.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .main-container {
+        background-size: contain; /* Avoids cropping */
+        background-position: top;
+        padding: 1rem;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+    #header-down-plataform {
+        max-width: 3rem;
+    }
+}
+
+/* For very small viewport height */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
