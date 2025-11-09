@@ -34,23 +34,22 @@ body {
 }
 
 #header-down-plataform {
-    max-width: 5rem;
-    position: fixed;
-    top: -30%;
-    margin: 0rem;
-    left: 39%;
+    max-width: 4rem;
     height: auto;
     display: block;
-    animation: moveDown 3s linear forwards;
+    animation: moveDown 0.75s ease-out forwards;
     will-change: transform;
-    z-index: 1;
+    /* Ensure image doesn't overlap text */
+    margin-right: 1rem;
 }
 
 @keyframes moveDown {
     0% {
-        transform: translateY(-2rem);
+        transform: translate(-100%, -50%);
+        opacity: 0;
     }
     100% {
-        transform: translateY(12rem);
+        transform: translate(0, -50%);
+        opacity: 1;
     }
 }
