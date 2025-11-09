@@ -24,7 +24,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 0;
     box-sizing: border-box;
     padding: 0 1rem;
 }
@@ -40,21 +40,21 @@ body {
     max-width: clamp(2.5rem, 12vw, 6rem);
     position: fixed;
     top: 0%;
-    left: 50%;
+    left: 35%;
     height: auto;
     display: block;
     transform: translate(-50%, -2rem);
-    animation: moveDown 3s linear forwards;
+    animation: moveDown 0.75s ease-out forwards;
     will-change: transform;
     z-index: 1;
 }
 
 @keyframes moveDown {
     0% {
-        transform: translate(-50%, -2rem);
+        transform: translateY(-10rem);
     }
     100% {
-        transform: translate(-50%, 12rem);
+        transform: translateY(-2rem);
     }
 }
 
